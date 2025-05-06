@@ -4,9 +4,11 @@ import PokemonSearch from '@/components/pokemon/pokemon-search';
 
 export default async function HomePage() {
 
+  const searchComponent = await PokemonSearch();
+
   return (
     <main>
-      <PokemonSearch />
+      {searchComponent}
     </main>
   );
 }
