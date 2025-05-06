@@ -1,6 +1,8 @@
-import PokemonDetailCard from "@/components/pokemon/pokemon-detail-card";
-import { getPokemon } from "@/services/pokemon";
 import { Metadata } from "next";
+
+import PokemonDetailCard from "@/components/pokemon/pokemon-detail-card";
+
+import { getPokemonById } from "@/services/pokemon";
 
 type Props = {
   params: { id: string };
@@ -18,7 +20,7 @@ type Pokemon = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const pokemon = await await getPokemon(params.id)
+  const pokemon = await await getPokemonById(params.id)
 
   return {
     title: `${pokemon.name}`,
@@ -30,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PokemonDetail({ params }: Props) {
-  const pokemon: Pokemon = await getPokemon(params.id)
+  const pokemon: Pokemon = await getPokemonById(params.id)
 
   const formattedPokemon = {
     name: pokemon.name,

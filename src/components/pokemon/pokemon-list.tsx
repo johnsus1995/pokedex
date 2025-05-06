@@ -4,8 +4,9 @@
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
-import PokemonCard from '@/components/pokemon/pokemon-card';
 import { cn } from '@/lib/utils';
+
+import PokemonCard from '@/components/pokemon/pokemon-card';
 
 export default function PokemonList() {
   const hasFetched = useRef(false);
@@ -41,9 +42,6 @@ export default function PokemonList() {
 
   return (
     <div className="space-y-4 min-h- max-h-[calc(100vh_-_268px)] overflow-y-auto">
-
-
-
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 ">
         {combinedPokemon.map((p, i) => {
           return (
